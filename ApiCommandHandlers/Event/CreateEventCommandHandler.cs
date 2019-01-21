@@ -45,6 +45,9 @@ namespace ApiCommandHandlers.Event
             eventEntity.Date = command.Data.Date;
             eventEntity.Name = command.Data.Name;
             eventEntity.Price = command.Data.Price;
+            eventEntity.ImageUrl = command.Data.ImageUrl;
+            eventEntity.Location = command.Data.Location;
+            eventEntity.Sessions = command.Data.Sessions;
 
             var result = eventRepository.Add(eventEntity);
 

@@ -18,5 +18,7 @@ namespace ApiData
         }
 
         public DbSet<Event> Event { get; set; }
+        public DbSet<Location> Location { get; set; }
+        public DbSet<Session> Sessions { get; set; }
     }
 }

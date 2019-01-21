@@ -31,6 +31,12 @@ namespace DotNetWebApi
             builder.RegisterType<EventRepository>().
                 As<IEventRepository>().
                 InstancePerLifetimeScope();
+            builder.RegisterType<LocationRepository>().
+                As<ILocationRepository>().
+                InstancePerLifetimeScope();
+            builder.RegisterType<SessionRepository>().
+                As<ISessionRepository>().
+                InstancePerLifetimeScope();
 
             builder.RegisterType<ErrorWrappingMiddleware>();
             foreach (var item in typeof(CommandHandler<,>).Assembly.GetTypes())
