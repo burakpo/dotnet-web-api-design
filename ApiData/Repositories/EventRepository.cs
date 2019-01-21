@@ -1,7 +1,9 @@
 ﻿using ApiData.Infastructure;
 using ApiModels.Event;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ApiData.Repositories
@@ -14,6 +16,10 @@ namespace ApiData.Repositories
     {
         public EventRepository(IDbFactory<EventContext> dbFactory) : base(dbFactory)
         {
+        }
+        public override IEnumerable<Event> GetAll()
+        {
+            return DbContext.Event.Include(t => t.Location).Include(t => t.Sessions);
         }
     }
 }
