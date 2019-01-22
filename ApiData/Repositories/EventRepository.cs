@@ -21,5 +21,9 @@ namespace ApiData.Repositories
         {
             return DbContext.Event.Include(t => t.Location).Include(t => t.Sessions);
         }
+        public override Event GetById(int id)
+        {
+            return DbContext.Event.Include(t => t.Location).Include(t => t.Sessions).FirstOrDefault(e => e.EventID == id);
+        }
     }
 }

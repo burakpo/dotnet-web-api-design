@@ -57,8 +57,13 @@ namespace DotNetWebApi.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<DeleteEventResponse>> DeleteAsync(int id)
         {
+            var command = new DeleteEventCommand();
+            var request = new DeleteEventRequest() { EventID = id };
+            command.Data = request;
+            var response = await Go(command);
+            return Ok(response);
         }
     }
 }
